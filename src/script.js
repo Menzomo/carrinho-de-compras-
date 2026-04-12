@@ -8,6 +8,47 @@ const btnFechar = document.getElementById('btn-fechar')
 
 const carrinho = []
 
+// Função para atualizar a exibição do carrinho
+function atualizarCarrinho() {
+    listaCarrinho.innerHTML = ""
+    let total = 0
+    let totalItens = 0
+    carrinho.forEach((item, index) => {
+        let produtoItem = document.createElement("div")
+        produtoItem.classList.add("item-carrinho")
+        produtoItem.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h4>${item.nome}</h4>
+            <button class="btn-remover-item" data-index="${index}">✕</button>
+        </div>
+        <p>Preço: ${item.preco}</p>
+        <p>Quantidade: ${item.quantidade}</p>
+    `
+        listaCarrinho.appendChild(produtoItem)
+
+        let precoNumero = parseFloat(item.preco.replace('R$ ', '').replace(',', '.'))
+        total += precoNumero * item.quantidade
+        totalItens += item.quantidade
+    })
+    document.getElementById("total-preco").textContent =
+        `R$ ${total.toFixed(2).replace('.', ',')}`
+
+    document.getElementById("contador-carrinho").textContent = totalItens
+    
+    // Adicionar evento ao botão de remover
+    document.querySelectorAll(".btn-remover-item").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            e.preventDefault()
+            let index = e.target.dataset.index
+            carrinho[index].quantidade--
+            if (carrinho[index].quantidade === 0) {
+                carrinho.splice(index, 1)
+            }
+            atualizarCarrinho()
+        })
+    })
+}
+
 for (let i = 0; i < btnUniverse.length; i++) {
     const btnProdutos = btnUniverse[i];
 
@@ -35,33 +76,7 @@ for (let i = 0; i < btnUniverse.length; i++) {
             })
 
         }
-        listaCarrinho.innerHTML = ""
-        let total = 0
-        let totalItens = 0
-        carrinho.forEach((item) => {
-            let produtoItem = document.createElement("div")//
-            produtoItem.classList.add("item-carrinho")
-            produtoItem.innerHTML = `
-        <h4>${item.nome}</h4>
-        <p>Preço: ${item.preco}</p>
-        <p>Quantidade: ${item.quantidade}</p>
-    `
-            listaCarrinho.appendChild(produtoItem)
-
-            let precoNumero = parseFloat(item.preco.replace('R$ ', '').replace(',', '.'))
-
-
-            total += precoNumero * item.quantidade
-            totalItens += item.quantidade
-
-
-
-
-        })
-        document.getElementById("total-preco").textContent =
-            `R$ ${total.toFixed(2).replace('.', ',')}`
-
-        document.getElementById("contador-carrinho").textContent = totalItens
+        atualizarCarrinho()
     })
 }
 // ABRIR

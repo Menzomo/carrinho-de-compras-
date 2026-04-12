@@ -8,14 +8,39 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- HEADER COM CARRINHO -->
+    <header id="header">
+        <h1>Loja Online</h1>
+        <button id="btn-carrinho" class="btn-carrinho">🛒 Carrinho
+            <span id="contador-carrinho">0</span>
+        </button>
+    </header>
+
+    <!-- MODAL DO CARRINHO -->
+    <aside id="modal-carrinho" class="modal-carrinho">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Seu Carrinho</h2>
+                <button id="btn-fechar" class="btn-fechar">✕</button>
+            </div>
+            <div id="lista-carrinho" class="lista-carrinho"></div>
+            <div class="carrinho-total">
+                <h3>Total: <span id="total-preco">R$ 0,00</span></h3>
+                <button class="btn-finalizar">Finalizar Compra</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- OVERLAY PARA FECHAR MODAL -->
+    <div id="overlay" class="overlay"></div>
+
     <!-- GRID DE PRODUTOS -->
     <main id="container-produtos">
-        <h1>Nossos Produtos</h1>
         
         <div id="grid-produtos">
             <!-- Produto 1 -->
             <div class="produto">
-                <div class="produto-imagem" style="background-image: url('')"></div>
+                <div class="produto-imagem" style="background-image: url('images/imac-one.jpg')"></div>
                 <div class="produto-info">
                     <h2 class="produto-nome">Produto 1</h2>
                     <p class="produto-preco">R$ 500</p>
@@ -25,7 +50,7 @@
 
             <!-- Produto 2 -->
             <div class="produto">
-                <div class="produto-imagem" style="background-image: url('')"></div>
+                <div class="produto-imagem" style="background-image: url('images/imac-two.jpg')"></div>
                 <div class="produto-info">
                     <h2 class="produto-nome">Produto 2</h2>
                     <p class="produto-preco">R$ 50</p>
@@ -35,7 +60,7 @@
 
             <!-- Produto 3 -->
             <div class="produto">
-                <div class="produto-imagem" style="background-image: url('')"></div>
+                <div class="produto-imagem" style="background-image: url('images/imac-thre.jpg')"></div>
                 <div class="produto-info">
                     <h2 class="produto-nome">Produto 3</h2>
                     <p class="produto-preco">R$ 100</p>
@@ -45,7 +70,7 @@
 
             <!-- Produto 4 -->
             <div class="produto">
-                <div class="produto-imagem" style="background-image: url('')"></div>
+                <div class="produto-imagem" style="background-image: url('images/imac-for.jpg')"></div>
                 <div class="produto-info">
                     <h2 class="produto-nome">Produto 4</h2>
                     <p class="produto-preco">R$ 200</p> 
@@ -55,7 +80,7 @@
 
             <!-- Produto 5 -->
             <div class="produto">
-                <div class="produto-imagem" style="background-image: url('')"></div>
+                <div class="produto-imagem" style="background-image: url('images/imac-five.jpg')"></div>
                 <div class="produto-info">
                     <h2 class="produto-nome">Produto 5</h2>
                     <p class="produto-preco">R$ 10</p>

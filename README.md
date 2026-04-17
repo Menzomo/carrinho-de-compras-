@@ -35,6 +35,19 @@ Este projeto foi criado para praticar:
 ✅ Código separado em módulos
 
 ---
+🖥️ Como Acessar o Projeto
+Opção 1 — Abrindo localmente
+Baixe ou clone este repositório:
+git clone URL_DO_REPOSITORIO
+Abra a pasta do projeto no VS Code.
+Utilize a extensão Live Server.
+Clique com o botão direito no arquivo:
+index.html
+Selecione:
+Open with Live Server
+
+opçao 2- vizualizar o projeto 
+https://menzomo.github.io/carrinho-de-compras-/
 
 # 🗂️ Estrutura do Projeto
 
@@ -79,7 +92,7 @@ Responsável por armazenar os dados do carrinho:
 
 ```js
 [
-  { nome: "Mouse", preco: "R$ 50,00", quantidade: 2 }
+  { nome: "Produto 2", preco: "R$ 50,00", quantidade: 2 }
 ]
 ```
 
